@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>I MISS YOU</title>
+<style>
+:root{
+  --bg-1: #ffe6f0;
+  --bg-2: #ffdfec;
+  --rose: #d94f84;
+  --deep: #7b2a56;
+  --muted: #6b4a5a;
+  --accent: #f7b6d2;
+  --radius: 14px;
+  --background-image: url("IMG_2397.jpg"); /* Replace with your background image */
+}
+* {box-sizing: border-box;}
+html,body{height:100%;}
+body{
+  margin:0;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color:var(--deep);
+  background: var(--background-image) no-repeat center center;
+  background-size: cover;
+  padding:24px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.app{
+  width:100%;
+  max-width:980px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.65), rgba(255,255,255,0.45));
+  border-radius:var(--radius);
+  box-shadow: 0 8px 30px rgba(123,42,86,0.12);
+  padding:20px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px;
+}
+.cover{
+  width:240px;
+  height:240px;
+  border-radius:12px;
+  overflow:hidden;
+  cursor:pointer;
+  transition:transform 240ms ease, box-shadow 240ms ease;
+}
+.cover img{
+  width:100%;height:100%;object-fit:cover;
+}
+.cover.playing{
+  animation:coverPulse 2000ms ease-in-out infinite;
+}
+@keyframes coverPulse{
+  0%{transform:scale(1);}
+  50%{transform:scale(1.015);}
+  100%{transform:scale(1);}
+}
+.controls{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  min-width:0;
+}
+.player{
+  background: linear-gradient(180deg, rgba(255,255,255,0.55), rgba(255,255,255,0.3));
+  border-radius:12px;padding:12px;
+  display:flex;flex-direction:column;gap:10px;
+  border:1px solid rgba(123,42,86,0.06);
+}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+button{
+  background:linear-gradient(180deg, #fff, rgba(255,255,255,0.9));
+  border:1px solid rgba(123,42,86,0.1);
+  padding:8px 12px;border-radius:10px;
+  font-weight:600;color:var(--deep);
+  cursor:pointer;
+}
+button:focus{outline:none;box-shadow:3px solid rgba(123,42,86,0.25);}
+.icon{font-weight:700; margin-right:6px;}
+input[type="range"]{
+  -webkit-appearance:none;height:6px;border-radius:6px;background:linear-gradient(90deg,var(--rose),var(--deep));
+  outline:none;
+}
+input[type="range"]::-webkit-slider-thumb{
+  -webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:#fff;border:2px solid rgba(123,42,86,0.2);}
+.time{font-size:0.9rem;color:var(--muted);min-width:86px;text-align:right}
+.message{
+  margin-top:8px;padding:12px;border-radius:12px;background:linear-gradient(180deg, rgba(255,245,250,0.6), rgba(255,255,255,0.35));
+  border:1px solid rgba(123,42,86,0.04);
+}
+textarea{
+  width:100%;min-height:220px;padding:12px;border-radius:10px;border:1px solid rgba(123,42,86,0.08);
+  resize:none;font:inherit;line-height:1.45;background:transparent;color:var(--deep);
+}
+@media(max-width:768px){
+  .app{flex-direction:column;align-items:center;}
+  .controls{width:100%;}
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="cover" id="cover" tabindex="0">
+    <img src="att.p6SZczV9NpnBhai8wUBdMnlGsvGNqssgGK_WhAF4t0A.jpg" alt="Album cover" id="coverImg"/>
+  </div>
+  <div class="controls">
+    <section class="player">
+      <audio id="audio" preload="metadata" src="Kalapastangan.mp3"></audio>
+      <div class="row" style="align-items:center;justify-content:space-between">
+        <div style="display:flex;gap:8px;align-items:center">
+          <button id="playBtn"><span class="icon" id="playIcon">►</span>Play</button>
+          <button id="pauseBtn" style="display:none"><span class="icon">❚❚</span>Pause</button>
+          <div id="status">Stopped</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px">
+          <input id="volume" type="range" min="0" max="1" step="0.01" value="0.9" />
+        </div>
+      </div>
+      <div class="row" style="align-items:center">
+        <input id="progress" type="range" min="0" max="100" value="0" step="0.1" style="flex:1" />
+        <div class="time"><span id="curTime">0:00</span> / <span id="durTime">0:00</span></div>
+      </div>
+    </section>
+    <section class="message">
+      <h2 style="margin:0;font-size:1rem">THIS ONE IS FOR YOU.</h2>
+      <textarea id="msg" readonly>
+hi steph i know this message is super long and maybe overwhelming but i really need to say everything on my mind and heart right now, i really wanna be honest with you and tell you all my feelings even if it sounds crazy or desperate, i know we are holding this kind of communication right now and being friends is really hard for me, every time i talk to you i feel something more than just friendship and sometimes it hurts kasi it reminds me na i am missing the chance to be closer to you, i know na i made mistakes before and i broke your trust and that is something i regret every day, i feel bad every time i think about how my actions affected you and made you feel uncomfortable or hurt, i wanna say sorry for everything and i really mean it, i am not just saying it, i am willing to do whatever it takes to prove to you that i can be better and that i can be someone you can trust again, steph i am asking you for one last try, i wanna take this chance even if risky because being away from you like this makes me feel empty and missing something super important, i really love you and i want to show you na i am serious, i am not here to beg, i just wanna be honest about my feelings and give everything i have to make things right between us, i know words are not enough because i hurt you already pero actions will show you na i am really willing to change and care for you the right way, i want to prove that i am someone who can be patient, understanding and reliable para sa iyo, i know rebuilding trust takes time and i am ready to wait and put in all the effort to make you feel safe and loved again, i want to show you that love is not just a feeling for me but something i am willing to act on every single day, steph i know being friends right now is super difficult for me because every interaction reminds me na i want more than friendship, and i understand if this makes you uncomfortable, i will respect your space and feelings, but i just wanna ask if there is still a chance for me to win you back, if you can see na i really want to make things right, i admit my mistakes, i admit na i broke your trust and i feel super guilty about it, i want to prove that i learned from all of it and i can be better for you, i want to be someone who makes you smile and feel safe and happy every day, i know i hurt you before pero i promise na i will never do it again, i am willing to listen to you, understand your fears, respect your boundaries and show you na i am serious about loving you in the right way, steph i know this is long but i just want you to know every single thought in my heart, i love you and i am ready to give everything i have para sa relationship natin, i know i messed up big time and that is why i am asking you sincerely na maybe we can start over slowly and i can show you through actions na i am someone you can trust and love again, i want to make you feel valued, cherished and safe, i want to be the one you can count on and someone who never makes you feel doubt or fear, steph you are so important to me and i cannot imagine not trying one last time to show you that i am really serious and willing to work hard to make things right, i know it will take time and patience but i am ready to give all of that just for you, i want to be consistent in proving that love is real for me and that i care more than words can explain, i know i am not perfect pero i promise to put in effort to be the best version of me for you, i want to show you na love ko is real, steady and sincere, i will wait, i will be patient, i will act on my words every day, i want to make every moment count para sayo, i want to be honest and open about my feelings because hiding them only makes it harder for me, i really hope na kahit konti you can feel my sincerity and understand that all i want is to make things right and show you na i am worth the risk, steph you mean so much to me, i want to be part of your life in a way that brings happiness, trust, love and comfort, i want to prove that i learned from my mistakes and i can be someone who makes your life better and brighter, i am really hoping na may chance pa tayo and kahit maliit, i will take it seriously and cherish every moment with you, i want to be patient, caring and loving in ways that show you my heart and intentions are pure, i know it will take time to rebuild trust and i am ready to do that without giving up, i just want you to feel safe, loved and happy with me, steph please consider this, i am serious about loving you and making things right, i admit my mistakes, i admit my wrongs, and i am ready to do everything to fix them and show you that i am committed to loving you the right way, please give me a chance to prove through actions na i am sincere, dedicated and really care about you, i love you steph and i really want to make this work, one last try, one last chance, to show you na i am worth trusting and loving again.
+      </textarea>
+    </section>
+  </div>
+</div>
+
+<script>
+const audio = document.getElementById("audio");
+const playBtn = document.getElementById("playBtn");
+const pauseBtn = document.getElementById("pauseBtn");
+const status = document.getElementById("status");
+const progress = document.getElementById("progress");
+const curTime = document.getElementById("curTime");
+const durTime = document.getElementById("durTime");
+const volume = document.getElementById("volume");
+const cover = document.getElementById("cover");
+
+const startTime = 114; // 114 seconds = 1:54
+
+function fmtTime(s){if(!isFinite(s)||s<0)return"0:00";const m=Math.floor(s/60),sec=Math.floor(s%60).toString().padStart(2,"0");return m+":"+sec;}
+function setCoverPlaying(is){cover.classList.toggle("playing",is);}
+function playAudio(){audio.play().then(()=>{setPlayingState(true);status.textContent="Playing";}).catch(()=>{status.textContent="Unable to play";});}
+function pauseAudio(){audio.pause();setPlayingState(false);status.textContent="Paused";}
+function setPlayingState(is){setCoverPlaying(is);playBtn.style.display=is?"none":"inline-flex";pauseBtn.style.display=is?"inline-flex":"none";}
+function updateProgress(){if(!audio.duration)return;progress.value=audio.currentTime/audio.duration*100;curTime.textContent=fmtTime(audio.currentTime);durTime.textContent=fmtTime(audio.duration);}
+function seekAudio(){audio.currentTime=(progress.value/100)*audio.duration;}
+audio.addEventListener("timeupdate",updateProgress);
+playBtn.addEventListener("click",playAudio);
+pauseBtn.addEventListener("click",pauseAudio);
+cover.addEventListener("click",()=>audio.paused?playAudio():pauseAudio());
+cover.addEventListener("keydown",e=>{if(e.key===" "||e.key==="Enter"){e.preventDefault();audio.paused?playAudio():pauseAudio()}});
+progress.addEventListener("input",seekAudio);
+volume.addEventListener("input",()=>audio.volume=volume.value);
+
+// Start audio at 114 seconds when metadata loads and autoplay
+audio.addEventListener("loadedmetadata", () => {
+  if(startTime < audio.duration){
+    audio.currentTime = startTime;
+    updateProgress();
+    audio.play().then(()=>setPlayingState(true)).catch(()=>{status.textContent="Autoplay blocked";});
+  }
+});
+
+window.addEventListener("load",()=>{updateProgress();});
+</script>
+</body>
+</html>
